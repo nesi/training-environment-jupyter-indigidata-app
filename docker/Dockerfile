@@ -56,4 +56,18 @@ RUN git clone https://github.com/nesi/ml101_workshop.git /opt/sklearn_tutorial \
     && conda env create -f /opt/sklearn_tutorial/environment.yml -p /var/lib/skl_tut \
     && echo ". /opt/miniconda3/etc/profile.d/conda.sh" > /etc/profile.d/conda.sh \
     && echo "conda activate /var/lib/skl_tut" >> /etc/profile.d/conda.sh \
+    && pip3 --no-cache-dir install nltk \
     && conda clean -afy
+
+
+# copy nicholson consultings repo
+RUN git clone https://github.com/nicholson-consulting/indigidata_nlp_training.git /opt/indigi_data \
+    && cd /opt/indigi_data \
+    && rm -rf /opt/indigi_data/.git \
+#    && . /opt/miniconda3/etc/profile.d/conda.sh \
+#    && conda config --set auto_activate_base false \
+#    && conda env create -f /opt/indigi_data/environment.yml -p /var/lib/skl_tut \
+#    && echo ". /opt/miniconda3/etc/profile.d/conda.sh" > /etc/profile.d/conda.sh \
+#    && echo "conda activate /var/lib/skl_tut" >> /etc/profile.d/conda.sh \
+#    && conda clean -afy \
+    
