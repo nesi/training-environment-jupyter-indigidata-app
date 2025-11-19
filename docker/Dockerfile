@@ -3,34 +3,15 @@ FROM ubuntu:22.04
 # install system dependencies
 # TODO: move ldap-utils, libnss-ldapd, libpam-ldapd, nscd, nslcd to base image??
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-        curl \
-        git \
-        dnsutils \
-        ldap-utils \
-        libnss-ldapd \
-        libpam-ldapd \
-        less \
-        locales \
-        nano \
-        nodejs \
-        nscd \
-        nslcd \
-        rsync \
-        unzip \
-        vim \
-        wget \
-        zip \
-        python-is-python3 \
-        python3 \
-        python3-pip \
-        libglib2.0-0 \
-        libnss3 \
-        libnspr4 \
-        libdbus-1-3 \
-        libxcb1 \
-        libx11-xcb1 \
-    && rm -rf /var/lib/apt/lists/* \
-    && localedef -i en_NZ -c -f UTF-8 -A /usr/share/locale/locale.alias en_NZ.UTF-8
+    curl git dnsutils ldap-utils libnss-ldapd libpam-ldapd \
+    less locales nano nodejs nscd nslcd rsync unzip vim wget zip \
+    python-is-python3 python3 python3-pip \
+    libglib2.0-0 libnss3 libnspr4 libdbus-1-3 libxcb1 libx11-xcb1 \
+    fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 \
+    libatk1.0-0 libcups2 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 \
+    libxrandr2 libxss1 xdg-utils libxrender1 libx11-6 libxkbcommon0 \
+ && rm -rf /var/lib/apt/lists/* \
+ && localedef -i en_NZ -c -f UTF-8 -A /usr/share/locale/locale.alias en_NZ.UTF-8
 
 ENV LANG en_NZ.utf8
 
