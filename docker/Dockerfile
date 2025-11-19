@@ -69,4 +69,6 @@ RUN . /opt/miniconda3/etc/profile.d/conda.sh \
     && echo ". /opt/miniconda3/etc/profile.d/conda.sh" > /etc/profile.d/conda.sh \
     && echo "conda activate /var/lib/skl_tut" >> /etc/profile.d/conda.sh \
     && conda clean -afy
+
+    
     
