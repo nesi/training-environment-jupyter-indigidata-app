@@ -61,6 +61,7 @@ RUN . /opt/miniconda3/etc/profile.d/conda.sh \
     && conda config --set auto_activate_base false \
     && conda env create -f /opt/sklearn_tutorial/environment.yml -p /var/lib/skl_tut \
     && echo ". /opt/miniconda3/etc/profile.d/conda.sh" > /etc/profile.d/conda.sh \
-    && echo "conda activate /var/lib/skl_tut" >> /etc/profile.d/conda.sh
+    && echo "conda activate /var/lib/skl_tut" >> /etc/profile.d/conda.sh \
     && conda clean -afy
+    
     
