@@ -23,6 +23,13 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
         python-is-python3 \
         python3 \
         python3-pip \
+        libglib2.0-0 \
+        libnss3 \
+        libnspr4 \
+        libnssutil3 \
+        libdbus-1-3 \
+        libxcb1 \
+        libx11-xcb1 \
     && rm -rf /var/lib/apt/lists/* \
     && localedef -i en_NZ -c -f UTF-8 -A /usr/share/locale/locale.alias en_NZ.UTF-8
 
