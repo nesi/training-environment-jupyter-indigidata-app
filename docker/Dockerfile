@@ -37,15 +37,15 @@ RUN git clone https://github.com/nesi/training-environment-k8s-utils.git /opt/oo
     && rm -rf /opt/ood-k8s-utils
 
 # Install ML101
-#ARG UTILS_HASH=6298fb01f7a7c66a8454e3f0fd74437a32491423
 RUN git clone https://github.com/nesi/ml101_workshop.git /opt/sklearn_tutorial \
     && cd /opt/sklearn_tutorial \
-#    && git checkout $ML101_HASH \
     && rm -rf /opt/sklearn_tutorial/.git
 
 # Install IndigiData NLP Training repo
-RUN git clone https://github.com/nicholson-consulting/indigidata_nlp_training.git /opt/indigi_data \
+ARG INDIGI_HASH=10c42309b2e334d4c9f7ed1a341d5eb23d996f6b
+RUN git clone https://github.com/lbrick/indigidata_nlp_training.git /opt/indigi_data \
     && cd /opt/indigi_data \
+    && git checkout $INDIGI_HASH \
     && rm -rf /opt/indigi_data/.git
 
 # install miniconda
