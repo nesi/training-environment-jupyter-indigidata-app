@@ -44,15 +44,14 @@ RUN git clone https://github.com/nesi/training-environment-k8s-utils.git /opt/oo
     && rm -rf /opt/ood-k8s-utils
 
 # Install ML101
-ARG UTILS_HASH=6298fb01f7a7c66a8454e3f0fd74437a32491423
+#ARG UTILS_HASH=6298fb01f7a7c66a8454e3f0fd74437a32491423
 RUN git clone https://github.com/nesi/ml101_workshop.git /opt/sklearn_tutorial \
     && cd /opt/sklearn_tutorial \
-    && git checkout $ML101_HASH \
+#    && git checkout $ML101_HASH \
     && rm -rf /opt/sklearn_tutorial/.git
 
-# Install ML101
+# Install IndigiData NLP Training repo
 RUN git clone https://github.com/nicholson-consulting/indigidata_nlp_training.git /opt/indigi_data \
-    && pip3 --no-cache-dir install nltk \
     && cd /opt/indigi_data \
     && rm -rf /opt/indigi_data/.git
 
@@ -68,6 +67,7 @@ RUN . /opt/miniconda3/etc/profile.d/conda.sh \
     && conda env create -f /opt/sklearn_tutorial/environment.yml -p /var/lib/skl_tut \
     && echo ". /opt/miniconda3/etc/profile.d/conda.sh" > /etc/profile.d/conda.sh \
     && echo "conda activate /var/lib/skl_tut" >> /etc/profile.d/conda.sh \
+    && pip3 --no-cache-dir install nltk \
     && conda clean -afy
 
     

@@ -24,6 +24,6 @@ echo "TIMING - Starting jupyter at: $(date)"
 # Launch the Jupyter Notebook Server
 set -x
 rsync --ignore-existing -avz /opt/sklearn_tutorial/ ~/sklearn_tutorial/
+rsync --ignore-existing -avz /opt/indigi_data/ ~/indigi_data/
 
 jupyter lab --config="${CONFIG_FILE}"
-
