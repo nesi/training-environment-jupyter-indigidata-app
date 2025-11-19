@@ -50,18 +50,13 @@ ARG ML101_HASH="4fd0340acf877a634fd0b0eac4cc0eeffe57fc66"
 RUN git clone https://github.com/nesi/ml101_workshop.git /opt/sklearn_tutorial \
     && cd /opt/sklearn_tutorial \
     && git checkout $ML101_HASH \
-    && rm -rf /opt/sklearn_tutorial/.git
-
-RUN git clone https://github.com/nicholson-consulting/indigidata_nlp_training.git /opt/indigi_data \
-    && pip3 --no-cache-dir install nltk \
-    && cd /opt/indigi_data \
-    && rm -rf /opt/indigi_data/.git
-
-RUN . /opt/miniconda3/etc/profile.d/conda.sh \
+    && rm -rf /opt/sklearn_tutorial/.git \
+    && . /opt/miniconda3/etc/profile.d/conda.sh \
     && conda config --set auto_activate_base false \
     && conda env create -f /opt/sklearn_tutorial/environment.yml -p /var/lib/skl_tut \
     && echo ". /opt/miniconda3/etc/profile.d/conda.sh" > /etc/profile.d/conda.sh \
     && echo "conda activate /var/lib/skl_tut" >> /etc/profile.d/conda.sh \
     && conda clean -afy
     
+
     
