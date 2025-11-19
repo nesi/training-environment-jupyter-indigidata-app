@@ -26,7 +26,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
         libglib2.0-0 \
         libnss3 \
         libnspr4 \
-        libnssutil3 \
         libdbus-1-3 \
         libxcb1 \
         libx11-xcb1 \
