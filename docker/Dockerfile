@@ -63,8 +63,10 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 
 RUN . /opt/miniconda3/etc/profile.d/conda.sh \
     && conda config --set auto_activate_base false \
+    && conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main \
+    && conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r \
     && conda env create -f /opt/sklearn_tutorial/environment.yml -p /var/lib/skl_tut \
     && echo ". /opt/miniconda3/etc/profile.d/conda.sh" > /etc/profile.d/conda.sh \
     && echo "conda activate /var/lib/skl_tut" >> /etc/profile.d/conda.sh \
     && conda clean -afy
-      
+    
