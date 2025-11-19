@@ -65,9 +65,9 @@ RUN . /opt/miniconda3/etc/profile.d/conda.sh \
     && conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main \
     && conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r \
     && conda env create -f /opt/sklearn_tutorial/environment.yml -p /var/lib/skl_tut \
+    && conda run -p /var/lib/skl_tut pip3 install --no-cache-dir nltk \
     && echo ". /opt/miniconda3/etc/profile.d/conda.sh" > /etc/profile.d/conda.sh \
     && echo "conda activate /var/lib/skl_tut" >> /etc/profile.d/conda.sh \
-    && pip3 --no-cache-dir install nltk \
     && conda clean -afy
 
     
