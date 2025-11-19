@@ -2,6 +2,7 @@ FROM ubuntu:22.04
 
 # install system dependencies
 # TODO: move ldap-utils, libnss-ldapd, libpam-ldapd, nscd, nslcd to base image??
+# Install system dependencies, Selenium dependencies, and Google Chrome
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     curl git dnsutils ldap-utils libnss-ldapd libpam-ldapd \
     less locales nano nodejs nscd nslcd rsync unzip vim wget zip \
@@ -10,8 +11,13 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 \
     libatk1.0-0 libcups2 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 \
     libxrandr2 libxss1 xdg-utils libxrender1 libx11-6 libxkbcommon0 \
- && rm -rf /var/lib/apt/lists/* \
- && localedef -i en_NZ -c -f UTF-8 -A /usr/share/locale/locale.alias en_NZ.UTF-8
+    gnupg wget \
+    && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-linux-signing-keyring.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/google-linux-signing-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list \
+    && apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y google-chrome-stable \
+    && rm -rf /var/lib/apt/lists/* \
+    && localedef -i en_NZ -c -f UTF-8 -A /usr/share/locale/locale.alias en_NZ.UTF-8
 
 ENV LANG en_NZ.utf8
 
