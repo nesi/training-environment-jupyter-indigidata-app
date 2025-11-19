@@ -56,6 +56,10 @@ RUN git clone https://github.com/nicholson-consulting/indigidata_nlp_training.gi
     && cd /opt/indigi_data \
     && rm -rf /opt/indigi_data/.git
 
+# install miniconda
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /miniconda.sh \
+    && bash /miniconda.sh -b -p /opt/miniconda3 \
+    && rm -f /miniconda.sh
 
 RUN . /opt/miniconda3/etc/profile.d/conda.sh \
     && conda config --set auto_activate_base false \
@@ -63,4 +67,4 @@ RUN . /opt/miniconda3/etc/profile.d/conda.sh \
     && echo ". /opt/miniconda3/etc/profile.d/conda.sh" > /etc/profile.d/conda.sh \
     && echo "conda activate /var/lib/skl_tut" >> /etc/profile.d/conda.sh \
     && conda clean -afy
-    
+      
