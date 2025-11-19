@@ -1,7 +1,7 @@
 ---
-name: ML101
+name: IndigiData
 category: Interactive Apps
 subcategory: Servers
 role: batch_connect
 description: |
-  This app will launch a Jupyter Lab server for the ML101 workshop
+  This app will launch a Jupyter Lab server for the IndigiData Aotearoa workshop
