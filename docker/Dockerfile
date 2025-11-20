@@ -42,7 +42,7 @@ RUN git clone https://github.com/nesi/ml101_workshop.git /opt/sklearn_tutorial \
     && rm -rf /opt/sklearn_tutorial/.git
 
 # Install IndigiData NLP Training repo
-ARG INDIGI_HASH=10c42309b2e334d4c9f7ed1a341d5eb23d996f6b
+ARG INDIGI_HASH=a18c17466a3ae98ed0f5fba101e3bf6bd7422288
 RUN git clone https://github.com/lbrick/indigidata_nlp_training.git /opt/indigi_data \
     && cd /opt/indigi_data \
     && git checkout $INDIGI_HASH \
